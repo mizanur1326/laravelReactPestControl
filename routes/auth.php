@@ -9,6 +9,10 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\backend\OrderControllerBackend;
+use App\Http\Controllers\backend\PriceController;
+use App\Http\Controllers\backend\ServiceController;
+use App\Http\Controllers\frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -54,6 +58,52 @@ Route::middleware('auth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+                // Services
+    Route::get('services', [ServiceController::class, 'index'])
+                ->name('services.index');
+
+    Route::get('services/create', [ServiceController::class, 'create'])
+                ->name('services.create');
+
+    Route::post('services/store', [ServiceController::class, 'store'])
+                ->name('services.store');
+
+    Route::get('services/edit/{id}', [ServiceController::class, 'edit'])
+                ->name('services.edit');
+
+    Route::post('services/update/{id}', [ServiceController::class, 'update'])
+                ->name('services.update');
+
+    Route::get('services/delete/{id}', [ServiceController::class, 'delete'])
+                ->name('services.delete');
+
+
+                // Packeges
+    Route::get('prices', [PriceController::class, 'index'])
+                ->name('prices.index');
+
+    Route::get('prices/create', [PriceController::class, 'create'])
+                ->name('prices/create');
+
+    Route::post('prices/store', [PriceController::class, 'store'])
+                ->name('prices.store');
+
+    Route::get('prices/edit/{id}', [PriceController::class, 'edit'])
+                ->name('prices.edit');
+
+    Route::post('prices/update/{$id}', [PriceController::class, 'update'])
+                ->name('prices.update');
+
+    Route::get('prices/delete/{id}', [PriceController::class, 'delete'])
+                ->name('prices.delete');
+
+
+    // Orders
+    Route::get('orders', [OrderControllerBackend::class, 'index']);
+    Route::post('order/status/{id}', [OrderControllerBackend::class, 'status'])->name('order.status');
+
+
 });

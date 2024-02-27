@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react'
 import React from 'react'
 
 export default function NavBar() {
@@ -15,11 +16,11 @@ export default function NavBar() {
         </button>
         <div className=" navbar-collapse me-n3" id="navbarCollapse">
           <div className="navbar-nav ms-auto">            
-            <a href="/" className="nav-item nav-link active">Home</a>
-            <a href="about" className="nav-item nav-link">About</a>
-            <a href="packeges" className="nav-item nav-link">Packeges</a>
-            <a href="project.html" className="nav-item nav-link">Projects</a>           
-            <a href="contact.html" className="nav-item nav-link">Contact</a>
+            <Link href="/" className="nav-item nav-link active">Home</Link>
+            <Link href="about" className="nav-item nav-link">About</Link>
+            <Link href="packeges" className="nav-item nav-link">Packeges</Link>
+            <Link href="contact.html" className="nav-item nav-link">Contact</Link>
+            <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>           
           </div>
         </div>
       </nav>
