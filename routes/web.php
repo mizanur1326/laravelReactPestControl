@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return Inertia::render('About');
 });
+Route::get('/packeges', function () {
+    return Inertia::render('Packeges');
+});
 
 
 

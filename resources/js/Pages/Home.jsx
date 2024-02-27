@@ -1,4 +1,6 @@
+import Footer from '@/Components/Footer'
 import NavBar from '@/Components/NavBar'
+import TopBar from '@/Components/TopBar'
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
@@ -8,79 +10,9 @@ export default function Home() {
         
         <div>
 
-  {/* Topbar Start */}
-  <div className="container-fluid topbar-top bg-primary">
-    <div className="container">
-      <div className="d-flex justify-content-between topbar py-2">
-        <div className="d-flex align-items-center flex-shrink-0 topbar-info">
-          <a href="#" className="me-4 text-secondary"><i className="fas fa-map-marker-alt me-2 text-dark" />123 Street, CA, USA</a>
-          <a href="#" className="me-4 text-secondary"><i className="fas fa-phone-alt me-2 text-dark" />+01234567890</a>
-          <a href="#" className="text-secondary"><i className="fas fa-envelope me-2 text-dark" />Example@gmail.com</a>
-        </div>
-        <div className="text-end pe-4 me-4 border-end border-dark search-btn">
-          <div className="search-form">
-            <form method="post" action="index.html">
-              <div className="form-group">
-                <div className="d-flex">
-                  <input type="search" className="form-control border-0 rounded-pill" name="search-input" defaultValue placeholder="Search Here" required />
-                  <button type="submit" value="Search Now!" className="btn"><i className="fa fa-search text-dark" /></button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="d-flex align-items-center justify-content-center topbar-icon">
-          <a href="#" className="me-4"><i className="fab fa-facebook-f text-dark" /></a>
-          <a href="#" className="me-4"><i className="fab fa-twitter text-dark" /></a>
-          <a href="#" className="me-4"><i className="fab fa-instagram text-dark" /></a>
-          <a href="#" className><i className="fab fa-linkedin-in text-dark" /></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* Topbar End */}
-  {/* Navbar Start */}
-  <nav className="container-fluid bg-dark">
-    <div className="container">
-      <nav className="navbar navbar-dark navbar-expand-lg py-lg-0">
-        <a href="index.html" className="navbar-brand">
-          <h1 className="text-primary mb-0 display-5">Pest<span className="text-white">Kit</span><i className="fa fa-spider text-primary ms-2" /></h1>
-        </a>
-        <button className="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span className="fa fa-bars text-dark" />
-        </button>
-        <div className=" navbar-collapse me-n3" id="navbarCollapse">
-          <div className="navbar-nav ms-auto">            
-            <a href="home" className="nav-item nav-link active">Home</a>
-            <a href="about" className="nav-item nav-link">About</a>
-            <a href="service.html" className="nav-item nav-link">Services</a>
-            <a href="project.html" className="nav-item nav-link">Projects</a>
-            <div className="nav-item dropdown">
-              <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-              <div className="dropdown-menu m-0 bg-primary">
-                <a href="price.html" className="dropdown-item">Pricing Plan</a>
-                <a href="blog.html" className="dropdown-item">Blog Post</a>
-                <a href="team.html" className="dropdown-item">Team Members</a>
-                <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                <a href="404.html" className="dropdown-item">404 Page</a>
-              </div>
-            </div>
-            <a href="contact.html" className="nav-item nav-link">Contact</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </nav>
-  {/* <nav className='container-fluid bg-dark'>
-  <nav className="navbar navbar-dark navbar-expand-lg py-lg-0">
-  <div className="collapse navbar-collapse me-n3" id="navbarCollapse">
-    <ul>
-      <li><Link href="index.html" className="nav-item nav-link active">Home</Link></li>
-    </ul>
-    </div>
-  </nav>
-  </nav> */}
-  {/* Navbar End */}
+
+  <TopBar />
+  <NavBar />
   {/* Carousel Start */}
   <div className="container-fluid carousel px-0 mb-5 pb-5">
     <div id="carouselId" className="carousel slide" data-bs-ride="carousel">
@@ -122,7 +54,7 @@ export default function Home() {
   </div>
   {/* Carousel End */}
   {/* Get In Touch Start */}
-  <div className="container-fluid py-5 wow fadeInUp" data-wow-delay=".3s">
+  {/* <div className="container-fluid py-5 wow fadeInUp" data-wow-delay=".3s">
     <div className="container py-5">
       <div className="bg-light px-4 py-5 rounded">
         <div className="text-center">
@@ -159,7 +91,7 @@ export default function Home() {
         </form>
       </div>
     </div>
-  </div>
+  </div> */}
   {/* Get In Touch End */}
   {/* About Start */}
   <div className="container-fluid py-5">
@@ -708,76 +640,8 @@ export default function Home() {
     </div>
   </div>
   {/* Testiminial End */}
-  {/* Footer Start */}
-  <div className="container-fluid footer py-5 wow fadeIn" data-wow-delay=".3s">
-    <div className="container py-5">
-      <div className="row g-4 footer-inner">
-        <div className="col-lg-3 col-md-6">
-          <div className="footer-item">
-            <h4 className="text-white fw-bold mb-4">About PestKit.</h4>
-            <p>Nostrud exertation ullamco labor nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-            <p className="mb-0"><a className href="#">PestKit </a> © 2023 All Right Reserved.</p>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6">
-          <div className="footer-item">
-            <h4 className="text-white fw-bold mb-4">Usefull Link</h4>
-            <div className="d-flex flex-column align-items-start">
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />About Us</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Contact Us</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Our Services</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Terms &amp; Condition</a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6">
-          <div className="footer-item">
-            <h4 className="text-white fw-bold mb-4">Services Link</h4>
-            <div className="d-flex flex-column align-items-start">
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Apartment Cleaning</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Office Cleaning</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Car Washing</a>
-              <a className="btn btn-link ps-0" href><i className="fa fa-check me-2" />Green Cleaning</a>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3 col-md-6">
-          <div className="footer-item">
-            <h4 className="text-white fw-bold mb-4">Contact Us</h4>
-            <a href className="btn btn-link w-100 text-start ps-0 pb-3 border-bottom rounded-0"><i className="fa fa-map-marker-alt me-3" />123 Street, CA, USA</a>
-            <a href className="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i className="fa fa-phone-alt me-3" />+012 345 67890</a>
-            <a href className="btn btn-link w-100 text-start ps-0 py-3 border-bottom rounded-0"><i className="fa fa-envelope me-3" />info@example.com</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* Footer End */}
-  {/* Copyright Start */}
-  <div className="container-fluid copyright bg-dark py-4">
-    <div className="container">
-      <div className="row">
-        <div className="col-md-4 text-center text-md-start mb-3 mb-md-0">
-          <a href="#" className="text-primary mb-0 display-6">Pest<span className="text-white">Kit</span><i className="fa fa-spider text-primary ms-2" /></a>
-        </div>
-        <div className="col-md-4 copyright-btn text-center text-md-start mb-3 mb-md-0 flex-shrink-0">
-          <a className="btn btn-primary rounded-circle me-3 copyright-icon" href><i className="fab fa-twitter" /></a>
-          <a className="btn btn-primary rounded-circle me-3 copyright-icon" href><i className="fab fa-facebook-f" /></a>
-          <a className="btn btn-primary rounded-circle me-3 copyright-icon" href><i className="fab fa-youtube" /></a>
-          <a className="btn btn-primary rounded-circle me-3 copyright-icon" href><i className="fab fa-linkedin-in" /></a>
-        </div>
-        <div className="col-md-4 my-auto text-center text-md-end text-white">
-          {/*/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. *** /*/}
-          {/*/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, *** /*/}
-          {/*/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". *** /*/}
-          Designed By <a className="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br />Distributed By <a className="border-bottom" href="https://themewagon.com">ThemeWagon</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  {/* Copyright End */}
-  {/* Back to Top */}
-  <a href="#" className="btn btn-primary rounded-circle border-3 back-to-top"><i className="fa fa-arrow-up" /></a>
+ <Footer />
+  
 
 </div>
 
