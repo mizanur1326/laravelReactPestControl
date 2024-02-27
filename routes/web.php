@@ -19,10 +19,10 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Home');
 });
-
-Route::get('/navbar', function () {
-    return Inertia::render('Navbar1'); // Assuming 'Navbar' is the name of your React component
+Route::get('/about', function () {
+    return Inertia::render('About');
 });
+
 
 
 // Route::get('/', function () {

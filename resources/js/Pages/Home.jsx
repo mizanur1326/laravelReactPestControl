@@ -51,8 +51,8 @@ export default function Home() {
         </button>
         <div className=" navbar-collapse me-n3" id="navbarCollapse">
           <div className="navbar-nav ms-auto">            
-            <Link href="index.html" className="nav-item nav-link active">Home</Link>
-            <Link href="about.html" className="nav-item nav-link">About</Link>
+            <a href="home" className="nav-item nav-link active">Home</a>
+            <a href="about" className="nav-item nav-link">About</a>
             <a href="service.html" className="nav-item nav-link">Services</a>
             <a href="project.html" className="nav-item nav-link">Projects</a>
             <div className="nav-item dropdown">
