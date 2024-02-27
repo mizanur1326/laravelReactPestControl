@@ -1,4 +1,5 @@
 import NavBar from '@/Components/NavBar'
+import { Link } from '@inertiajs/react'
 import React from 'react'
 
 export default function Home() {
@@ -6,7 +7,6 @@ export default function Home() {
     <>
         
         <div>
-<NavBar />
 
   {/* Topbar Start */}
   <div className="container-fluid topbar-top bg-primary">
@@ -40,7 +40,7 @@ export default function Home() {
   </div>
   {/* Topbar End */}
   {/* Navbar Start */}
-  <div className="container-fluid bg-dark">
+  <nav className="container-fluid bg-dark">
     <div className="container">
       <nav className="navbar navbar-dark navbar-expand-lg py-lg-0">
         <a href="index.html" className="navbar-brand">
@@ -49,10 +49,10 @@ export default function Home() {
         <button className="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span className="fa fa-bars text-dark" />
         </button>
-        <div className="collapse navbar-collapse me-n3" id="navbarCollapse">
-          <div className="navbar-nav ms-auto">
-            <a href="index.html" className="nav-item nav-link active">Home</a>
-            <a href="about.html" className="nav-item nav-link">About</a>
+        <div className=" navbar-collapse me-n3" id="navbarCollapse">
+          <div className="navbar-nav ms-auto">            
+            <Link href="index.html" className="nav-item nav-link active">Home</Link>
+            <Link href="about.html" className="nav-item nav-link">About</Link>
             <a href="service.html" className="nav-item nav-link">Services</a>
             <a href="project.html" className="nav-item nav-link">Projects</a>
             <div className="nav-item dropdown">
@@ -70,7 +70,16 @@ export default function Home() {
         </div>
       </nav>
     </div>
-  </div>
+  </nav>
+  {/* <nav className='container-fluid bg-dark'>
+  <nav className="navbar navbar-dark navbar-expand-lg py-lg-0">
+  <div className="collapse navbar-collapse me-n3" id="navbarCollapse">
+    <ul>
+      <li><Link href="index.html" className="nav-item nav-link active">Home</Link></li>
+    </ul>
+    </div>
+  </nav>
+  </nav> */}
   {/* Navbar End */}
   {/* Carousel Start */}
   <div className="container-fluid carousel px-0 mb-5 pb-5">
