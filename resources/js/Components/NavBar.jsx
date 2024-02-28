@@ -1,6 +1,11 @@
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'; // Import the specific icon
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
+
 export default function NavBar() {
   return (
     <>
@@ -18,9 +23,17 @@ export default function NavBar() {
           <div className="navbar-nav ms-auto">            
             <Link href="/" className="nav-item nav-link active">Home</Link>
             <Link href="about" className="nav-item nav-link">About</Link>
+            <Link href="ourservices" className="nav-item nav-link">Services</Link>
+            <Link href="blogs" className="nav-item nav-link">Blog</Link>
             <Link href="packeges" className="nav-item nav-link">Packeges</Link>
-            <Link href="contact.html" className="nav-item nav-link">Contact</Link>
-            <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>           
+            <Link href="contact" className="nav-item nav-link">Contact</Link>                       
+            <Link href="cart" className="nav-item nav-link">
+            <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />            
+            </Link>
+            <Link href="login" className="nav-item nav-link">
+            <FontAwesomeIcon icon={faUser} style={{color: "#FFD43B"}} />           
+            </Link>
+            {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
           </div>
         </div>
       </nav>

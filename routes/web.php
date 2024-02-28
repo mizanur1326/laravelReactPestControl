@@ -48,13 +48,20 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.contact');
 // });
 
-
-
 Route::get('/', function () {
     return Inertia::render('Home');
 });
 Route::get('/about', function () {
     return Inertia::render('About');
+});
+Route::get('/ourservices', function () {
+    return Inertia::render('Services');
+});
+Route::get('/blogs', function () {
+    return Inertia::render('Blog');
+});
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
 });
 Route::get('/packeges', function () {
     $packages = Price::all();
