@@ -6,11 +6,11 @@ export default function Cart() {
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="card-title">Cart</h1>
-                        <table>
+                        <h1 class="card-title text-3xl">Cart</h1>
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th style={{ width: "50%" }}>Product</th>
+                                <th style={{ width: "50%" }}>Product</th>
                                     <th style={{ width: "10%" }}>Price</th>
                                     <th style={{ width: "8%" }}>Quantity</th>
                                     <th
@@ -22,10 +22,12 @@ export default function Cart() {
                                     <th style={{ width: "10%" }}>Action</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-                                <tr data-id="{{ $id }}">
-                                    <td data-th="Product">
+                            <tr data-id="{{ $id }}" className="text-center">
+                                    <td
+                                        data-th="Product"
+                                        className="text-start"
+                                    >
                                         <div class="row">
                                             <div class="col-sm-9">
                                                 <h4 class="nomargin">
@@ -56,14 +58,14 @@ export default function Cart() {
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="5" class="text-right">
-                                        <h3>
+                                    <td colspan="5" class="text-left">
+                                        <h3 className="text-3xl">
                                             <strong>Total </strong>
                                         </h3>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="5" class="text-right">
+                                    <td colspan="5" class="text-left">
                                         <a
                                             href="{{ url('/packege') }}"
                                             class="btn btn-warning"
