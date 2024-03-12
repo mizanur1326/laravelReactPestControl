@@ -1,4 +1,4 @@
-import { usePage } from '@inertiajs/react';
+import { usePage, Link } from '@inertiajs/react';
 import React from 'react'
 
 const Package = (props) => {
@@ -17,11 +17,11 @@ const Package = (props) => {
           <div className="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay=".3s">
           <div className="rounded bg-light pricing-item">
             <div className="bg-primary py-3 px-5 text-center rounded-top border-bottom border-dark">
-              <h2 className="m-0">{price.name}</h2>
+              <h2 className="m-0 text-3xl">{price.name}</h2>
             </div>
             <div className="px-4 py-5 text-center bg-primary pricing-label mb-2">
-              <h1 className="mb-0">{price.price}<span className="text-secondary fs-5 fw-normal">/mo</span></h1>
-              <p className="mb-0">Basic Pest Control</p>
+              <h1 className="mb-0 text-3xl">{price.price}<span className="text-secondary fs-5 fw-normal">/mo</span></h1>
+              {/* <p className="mb-0">{price.name}</p> */}
             </div>
             <div className="p-4 text-center fs-5">
               <p><i className="fa fa-check text-success me-2" />Household pests Control</p>
@@ -29,7 +29,9 @@ const Package = (props) => {
               <p><i className="fa fa-check text-success me-2" />Re-Service at No-Charge</p>
               <p><i className="fa fa-times text-danger me-2" />Termite Control</p>
               <p><i className="fa fa-times text-danger me-2" />Mosquito Reduction</p>
-              <button type="button" className="btn btn-primary border-0 rounded-pill px-4 py-3 mt-3">Add to Cart</button>
+          <Link href={'/details/' + price.id}>
+          <button type="button" className="btn btn-primary border-0 rounded-pill px-4 py-3 mt-3">Order Now</button>
+          </Link>
             </div>
           </div>
         </div>
@@ -38,6 +40,7 @@ const Package = (props) => {
     </div>
   </div>
 </div>
+
   )
 }
 

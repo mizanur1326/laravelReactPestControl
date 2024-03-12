@@ -8,6 +8,7 @@ use App\Models\backend\Service;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class FrontendController extends Controller
 {
@@ -22,6 +23,35 @@ class FrontendController extends Controller
         $data['services'] = Service::all();
         return view('frontend.services', $data);
     }
+
+
+    public function order(Request $request){
+        
+        $order = new Order();
+         $order_data = $request->all();
+         $order_data['order_number'] = "ORD" . " " . rand(5, 5000);
+        //  $order_data['quantity'] = 1;
+         $order_data['country'] = "Bangladesh";
+        //  print_r($order_data) ; 
+        $order->create($order_data);
+        // $request->session()->forget('cart');
+
+         
+        //  print_r(session('cart'));
+
+         dd($order_data);
+        return redirect('packege')->with('msg', 'Order Successfully Placed. Thank You for Order');
+
+
+        //  $carts = session('cart');
+        //  print_r($carts) ; 
+        //  $order_data['coupon'] = '100';
+        //  $order_data['shipping_id'] = '15';
+        //  $order->fill($order_data);
+     }
+
+
+
 
 
     // CART Start
@@ -112,30 +142,19 @@ class FrontendController extends Controller
 
     }
 
-    public function order(Request $request){
+    public function details($id){
         
-        $order = new Order();
-         $order_data = $request->all();
-         $order_data['order_number'] = "ORD" . " " . rand(5, 5000);
-        //  $order_data['quantity'] = 1;
-         $order_data['country'] = "Bangladesh";
-        //  print_r($order_data) ; 
-        $order->create($order_data);
-        $request->session()->forget('cart');
-
-         
-        //  print_r(session('cart'));
-
-        //  dd($order_data);
-        return redirect('packege')->with('msg', 'Order Successfully Placed. Thank You for Order');
-
-
-        //  $carts = session('cart');
-        //  print_r($carts) ; 
-        //  $order_data['coupon'] = '100';
-        //  $order_data['shipping_id'] = '15';
-        //  $order->fill($order_data);
+        $myPackage = Price::find($id);
+        $user = Auth::guard('customer')->user() ?? '';
+        $token = csrf_token();
+        $userData = [
+            'user' => $user,
+            'token' => $token,
+        ];
+        return Inertia::render('Details', compact('myPackage', 'userData'));
      }
+
+
 
      public function myOrder(){
         // $orders = Order::all();

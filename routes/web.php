@@ -68,6 +68,18 @@ Route::get('/contact', function () {
 Route::get('/cartReact', function () {
     return Inertia::render('CartPage');
 });
+
+
+
+// Route::get('/order/{id}', function () {
+//     return Inertia::render('OrderPage');
+// });
+
+Route::get('/details/{id}', [FrontendController::class, 'details'])->name('details');
+Route::post('order', [FrontendController::class, 'order'])->name('checkout.order');
+
+
+
 Route::get('/packeges', function () {
     $packages = Price::all();
     return Inertia::render('Packeges', compact('packages'));
@@ -101,7 +113,7 @@ Route::delete('remove-from-cart', [FrontendController::class, 'remove'])->name('
 
 // Checkout
 Route::get('checkout', [FrontendController::class, 'checkout'])->name('checkout.page')->middleware('customer');    
-Route::post('order', [FrontendController::class, 'order'])->name('checkout.order');
+
 Route::get('reports', [DashboardController::class, 'reports'])->name('reports');
 
 // Invoice
