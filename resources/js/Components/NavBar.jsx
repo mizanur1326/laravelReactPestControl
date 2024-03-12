@@ -27,7 +27,7 @@ export default function NavBar() {
             <Link href="blogs" className="nav-item nav-link">Blog</Link>
             <Link href="packeges" className="nav-item nav-link">Packeges</Link>
             <Link href="contact" className="nav-item nav-link">Contact</Link>                       
-            <Link href="cart" className="nav-item nav-link">
+            <Link href="cartReact" className="nav-item nav-link">
             <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />            
             </Link>
             <Link href="login" className="nav-item nav-link">

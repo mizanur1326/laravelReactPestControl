@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Models\backend\Price;
+use App\Models\backend\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,13 +56,17 @@ Route::get('/about', function () {
     return Inertia::render('About');
 });
 Route::get('/ourservices', function () {
-    return Inertia::render('Services');
+    $service = Service::all();
+    return Inertia::render('Services', compact('service'));
 });
 Route::get('/blogs', function () {
     return Inertia::render('Blog');
 });
 Route::get('/contact', function () {
     return Inertia::render('Contact');
+});
+Route::get('/cartReact', function () {
+    return Inertia::render('CartPage');
 });
 Route::get('/packeges', function () {
     $packages = Price::all();
