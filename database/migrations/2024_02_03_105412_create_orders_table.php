@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('order_number', 150);
             // $table->bigInteger('user_id');
-            $table->double('sub_total');
+            // $table->double('sub_total');
             // $table->bigInteger('shipping_id');
             // $table->string('coupon');
             $table->double('total_amount');
             $table->string('productName');
-            $table->integer('quantity');
+            // $table->integer('quantity');
             // $table->string('payment_method');
             // $table->string('payment_status');
             // $table->string('status');

@@ -32,6 +32,7 @@ class FrontendController extends Controller
          $order_data['order_number'] = "ORD" . " " . rand(5, 5000);
         //  $order_data['quantity'] = 1;
          $order_data['country'] = "Bangladesh";
+        //  $order_data['sub_total'] = "123";
         //  print_r($order_data) ; 
         $order->create($order_data);
         // $request->session()->forget('cart');
