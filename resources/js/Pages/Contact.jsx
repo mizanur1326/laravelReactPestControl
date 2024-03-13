@@ -4,14 +4,17 @@ import TopBar from '@/Components/TopBar'
 import Footer from '@/Components/Footer'
 
 
-export default function Contact() {
+export default function Contact({ myPackage, userData }) {
+  const { user, token } = userData;
+  console.log(user.name);
+  console.log(myPackage);
   return (
     <>
           
 
         <div>
 <TopBar />
-<NavBar />
+<NavBar userData={userData}/>
 
 <div>
   {/* Page Header Start */}

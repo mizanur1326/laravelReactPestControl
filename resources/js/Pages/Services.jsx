@@ -5,14 +5,17 @@ import Footer from '@/Components/Footer'
 import Services from '@/Components/Services'
 
 
-export default function ServicePage() {
+export default function ServicePage({ myPackage, userData }) {
+  const { user, token } = userData;
+  console.log(user.name);
+  console.log(myPackage);
   return (
     <>
           
 
         <div>
 <TopBar />
-<NavBar />
+<NavBar userData={userData}/>
 {/* Services Start */}
 <Services />
 {/* Services End */}

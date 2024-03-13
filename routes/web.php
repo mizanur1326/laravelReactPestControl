@@ -72,8 +72,14 @@ Route::get('/about', function () {
 });
 
 Route::get('/ourservices', function () {
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
     $service = Service::all();
-    return Inertia::render('Services', compact('service'));
+    return Inertia::render('Services', compact('service', 'userData'));
 });
 Route::get('/blogs', function () {
     $user = Auth::guard('customer')->user() ?? '';
@@ -85,8 +91,15 @@ Route::get('/blogs', function () {
     return Inertia::render('Blog', compact('userData'));
 });
 Route::get('/contact', function () {
-    return Inertia::render('Contact');
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
+    return Inertia::render('Contact', compact('userData'));
 });
+
 Route::get('/cartReact', function () {
     return Inertia::render('CartPage');
 });
