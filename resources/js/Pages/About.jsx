@@ -4,14 +4,17 @@ import TopBar from '@/Components/TopBar'
 import Footer from '@/Components/Footer'
 
 
-export default function About() {
+export default function About({ myPackage, userData }) {
+  const { user, token } = userData;
+  console.log(user.name);
+  console.log(myPackage);
   return (
     <>
           
 
         <div>
 <TopBar />
-<NavBar />
+<NavBar userData={userData}/>
   {/* Page Header Start */}
   <div className="container-fluid page-header py-5">
     <div className="container text-center py-5">

@@ -25,31 +25,36 @@ class FrontendController extends Controller
     }
 
 
-    public function order(Request $request){
-        
+    public function order(Request $request)
+    {
+
         $order = new Order();
-         $order_data = $request->all();
-         $order_data['order_number'] = "ORD" . " " . rand(5, 5000);
+        // $order_data = $request->all();
+        $order_data = $request->except(['_token']);
+        // $order_data = array_except($request->all(), ['_token']);
+        $order_data['order_number'] = "ORD" . " " . rand(5, 5000);
         //  $order_data['quantity'] = 1;
-         $order_data['country'] = "Bangladesh";
+        $order_data['country'] = "Bangladesh";
         //  $order_data['sub_total'] = "123";
         //  print_r($order_data) ; 
-        $order->create($order_data);
         // $request->session()->forget('cart');
+        
+        // $order->create($order_data);
 
-         
         //  print_r(session('cart'));
 
-         dd($order_data);
-        return redirect('packege')->with('msg', 'Order Successfully Placed. Thank You for Order');
+        //  dd($order_data);
+       
+        // return Inertia::render('packeges', [
+        //     'message' => 'Order Successfully Placed. Thank You for Order'
+        // ]);
+
+        if( $order->insert($order_data)){
+            return redirect('packeges')->with('msg' , 'Order Successfully Placed. Thank You for Order');
+        }
 
 
-        //  $carts = session('cart');
-        //  print_r($carts) ; 
-        //  $order_data['coupon'] = '100';
-        //  $order_data['shipping_id'] = '15';
-        //  $order->fill($order_data);
-     }
+    }
 
 
 
@@ -57,7 +62,7 @@ class FrontendController extends Controller
 
     // CART Start
 
-        /**
+    /**
      * Write code on Method
      *
      * @return response()
@@ -67,7 +72,7 @@ class FrontendController extends Controller
         $packeges = Price::all();
         return view('packeges', compact('packeges'));
     }
-  
+
     /**
      * Write code on Method
      *
@@ -77,7 +82,7 @@ class FrontendController extends Controller
     {
         return view('frontend.cart');
     }
-  
+
     /**
      * Write code on Method
      *
@@ -86,10 +91,10 @@ class FrontendController extends Controller
     public function addToCart($id)
     {
         $price = Price::findOrFail($id);
-          
+
         $cart = session()->get('cart', []);
-  
-        if(isset($cart[$id])) {
+
+        if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
@@ -98,11 +103,11 @@ class FrontendController extends Controller
                 "price" => $price->price,
             ];
         }
-          
+
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
-  
+
     /**
      * Write code on Method
      *
@@ -110,14 +115,14 @@ class FrontendController extends Controller
      */
     public function update(Request $request)
     {
-        if($request->id && $request->quantity){
+        if ($request->id && $request->quantity) {
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
             session()->flash('success', 'Cart updated successfully');
         }
     }
-  
+
     /**
      * Write code on Method
      *
@@ -125,9 +130,9 @@ class FrontendController extends Controller
      */
     public function remove(Request $request)
     {
-        if($request->id) {
+        if ($request->id) {
             $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
+            if (isset($cart[$request->id])) {
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
@@ -135,16 +140,17 @@ class FrontendController extends Controller
         }
     }
 
-    public function checkout(Request $request){
+    public function checkout(Request $request)
+    {
 
         // $data = $request->session()->all();
 
         return view('frontend.checkout');
-
     }
 
-    public function details($id){
-        
+    public function details($id)
+    {
+
         $myPackage = Price::find($id);
         $user = Auth::guard('customer')->user() ?? '';
         $token = csrf_token();
@@ -153,19 +159,18 @@ class FrontendController extends Controller
             'token' => $token,
         ];
         return Inertia::render('Details', compact('myPackage', 'userData'));
-     }
+    }
 
 
 
-     public function myOrder(){
+    public function myOrder()
+    {
         // $orders = Order::all();
         $customer_id = Auth::guard('customer')->user()->id;
         // $product = Order::where('student_id', $student_id)->get();
         $orders = Order::where('customer_id', $customer_id)->get();
         // ->where('status', 0)
-        
-        return view( 'frontend.myorders', compact('orders') );
-     }
 
-
+        return view('frontend.myorders', compact('orders'));
+    }
 }

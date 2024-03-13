@@ -4,7 +4,10 @@ import TopBar from '@/Components/TopBar'
 import { Link } from '@inertiajs/react'
 import React from 'react'
 
-export default function Home() {
+export default function Home({ myPackage, userData }) {
+  const { user, token } = userData;
+  console.log(user.name);
+  console.log(myPackage);
   return (
     <>
         
@@ -12,7 +15,7 @@ export default function Home() {
 
 
   <TopBar />
-  <NavBar />
+  <NavBar userData={userData}/>
   {/* Carousel Start */}
   <div className="container-fluid carousel px-0 mb-5 pb-5">
     <div id="carouselId" className="carousel slide" data-bs-ride="carousel">

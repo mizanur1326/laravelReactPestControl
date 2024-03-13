@@ -10,6 +10,7 @@ const Package = (props) => {
     <div className="text-center mb-5 wow fadeInUp" data-wow-delay=".3s">
       <h5 className="mb-2 px-3 py-1 text-dark rounded-pill d-inline-block border border-2 border-primary">Our Pricing</h5>
       <h1 className="display-5 w-50 mx-auto">Affordable Pricing Plan For Pest Control Services</h1>
+      <h1></h1>
     </div>
     <div className="row g-5">
       {

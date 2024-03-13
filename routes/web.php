@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\backend\Price;
 use App\Models\backend\Service;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,17 +51,38 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    // $myPackage = Price::find($id);
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
+    return Inertia::render('Home', compact('userData'));
 });
+
 Route::get('/about', function () {
-    return Inertia::render('About');
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
+    return Inertia::render('About', compact('userData'));
 });
+
 Route::get('/ourservices', function () {
     $service = Service::all();
     return Inertia::render('Services', compact('service'));
 });
 Route::get('/blogs', function () {
-    return Inertia::render('Blog');
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
+    return Inertia::render('Blog', compact('userData'));
 });
 Route::get('/contact', function () {
     return Inertia::render('Contact');

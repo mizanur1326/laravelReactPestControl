@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class CustomerController extends Controller
 {
@@ -29,15 +30,14 @@ class CustomerController extends Controller
 
 
     public function destroy (Request $request)
-    {
-        
-        Auth::guard('customer')->logout();
-        
+    {        
+        Auth::guard('customer')->logout();       
 
         // $request->session()->invalidate();
 
         // $request->session()->regenerateToken();
 
         return redirect('customer/login');
+        
     }
 }

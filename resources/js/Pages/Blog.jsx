@@ -5,7 +5,11 @@ import Footer from '@/Components/Footer'
 import React, { useEffect } from 'react';
 
 
-export default function Blog() {
+export default function Blog({ myPackage, userData }) {
+  const { user, token } = userData;
+  console.log(user.name);
+  console.log(myPackage);
+
     useEffect(() => {
         $('.blog-carousel').owlCarousel({
           // Your Owl Carousel options here
@@ -32,7 +36,7 @@ export default function Blog() {
 
         <div>
 <TopBar />
-<NavBar />
+<NavBar userData={userData}/>
 
 {/* Blog Start */}
 <div className="container-fluid py-5">
