@@ -24,52 +24,76 @@ export default function NavBar({ userData }) {
             </button>
             {
               user ?
-               
-                  <div className=" navbar-collapse me-n3" id="navbarCollapse">
-                    <div className="navbar-nav ms-auto">
 
-                      <Link href="/" className="nav-item nav-link active">Home</Link>
-                      <Link href="about" className="nav-item nav-link">About</Link>
-                      <Link href="ourservices" className="nav-item nav-link">Services</Link>
-                      <Link href="blogs" className="nav-item nav-link">Blog</Link>
-                      <Link href="packeges" className="nav-item nav-link">Packeges</Link>
-                      <Link href="contact" className="nav-item nav-link">Contact</Link>
-                      <Link href="cartReact" className="nav-item nav-link">
-                        <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />
-                      </Link>
-                      <a href="customer/login" className="nav-item nav-link">
-                        <FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B" }} />
+                <div className=" navbar-collapse me-n3" id="navbarCollapse">
+                  <div className="navbar-nav ms-auto">
+
+                    <Link href="/" className="nav-item nav-link active">Home</Link>
+                    <Link href="about" className="nav-item nav-link">About</Link>
+                    <Link href="ourservices" className="nav-item nav-link">Services</Link>
+                    <Link href="blogs" className="nav-item nav-link">Blog</Link>
+                    <Link href="packeges" className="nav-item nav-link">Packeges</Link>
+                    <Link href="contact" className="nav-item nav-link">Contact</Link>
+                    <Link href="cartReact" className="nav-item nav-link">
+                      <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />
+                    </Link>
+                    {/* <a href="customer/login" className="nav-item nav-link">
+                      <FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B" }} />
+                      <span>{user.name} </span>
+                    </a> */}
+
+                    <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B" }} /> 
+                        <span className='ms-2'>{user.name}</span>
                       </a>
-                      <form action={route("customer.logout")} method="post">                      
-                        <input type="hidden" name='_token' value={token} />
-                        <button type='submit' className="nav-item nav-link"><p className='text-warning'> {user.name} </p><br />LogOut</button>
-                      </form>
-                      {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
+                      <div class="dropdown-menu m-0 bg-primary">
+                        <form action={route("customer.logout")} method="post">
+                          <input type="hidden" name='_token' value={token} />
+                          <button type='submit' className="dropdown-item text-md font-bold hover:bg-transparent">LogOut</button>
+                        </form>
+                      </div>
                     </div>
+
+                    <form action={route("customer.logout")} method="post">
+                      <input type="hidden" name='_token' value={token} />
+                      {/* <button type='submit' className="nav-item nav-link"><p className='text-warning'> {user.name} </p><br />LogOut</button> */}
+                    </form>
+                    {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
                   </div>
-            
+                </div>
+
                 :
-             
-                  <div className=" navbar-collapse me-n3" id="navbarCollapse">
-                    <div className="navbar-nav ms-auto">
-                      <Link href="/" className="nav-item nav-link active">Home</Link>
-                      <Link href="about" className="nav-item nav-link">About</Link>
-                      <Link href="ourservices" className="nav-item nav-link">Services</Link>
-                      <Link href="blogs" className="nav-item nav-link">Blog</Link>
-                      <Link href="packeges" className="nav-item nav-link">Packeges</Link>
-                      <Link href="contact" className="nav-item nav-link">Contact</Link>
-                      <Link href="cartReact" className="nav-item nav-link">
-                        <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />
-                      </Link>
-                      <a href="customer/login" className="nav-item nav-link">
+
+                <div className=" navbar-collapse me-n3" id="navbarCollapse">
+                  <div className="navbar-nav ms-auto">
+                    <Link href="/" className="nav-item nav-link active">Home</Link>
+                    <Link href="about" className="nav-item nav-link">About</Link>
+                    <Link href="ourservices" className="nav-item nav-link">Services</Link>
+                    <Link href="blogs" className="nav-item nav-link">Blog</Link>
+                    <Link href="packeges" className="nav-item nav-link">Packeges</Link>
+                    <Link href="contact" className="nav-item nav-link">Contact</Link>
+                    <Link href="cartReact" className="nav-item nav-link">
+                      <FontAwesomeIcon icon={faShoppingCart} style={{ color: "#FFD43B" }} />
+                    </Link>
+                    {/* <a href="customer/login" className="nav-item nav-link">
+                      <FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B" }} />
+                    </a> */}
+
+                    <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                         <FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B" }} />
                       </a>
-                      
-                      {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
-                      <a href="customer/login"> <button className='btn btn-warning'><p className='text-warning'> {user.name} </p><br /> Log In </button> </a>
+                      <div class="dropdown-menu m-0 bg-primary">
+                        <a href="customer/login" class="dropdown-item">Log In</a>
+                      </div>
                     </div>
+
+                    {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
+                    {/* <a href="customer/login"> <button className='btn btn-warning'><p className='text-warning'> {user.name} </p><br /> Log In </button> </a> */}
                   </div>
-               
+                </div>
+
             }
 
           </nav>

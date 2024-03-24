@@ -32,7 +32,7 @@ export default function Details({ myPackage, userData }) {
               <div className="col-lg-6" style={{margin: "0 auto"}}>
                 {/* <h2 className="checkout-title text-3xl text-yellow-700">Billing Details</h2> */}
                 <div className="row">
-                  <input type="text" name='_token' value={token} />
+                  <input type="hidden" name='_token' value={token} />
                   <div className="col-sm-12">
                     <label className='text-black'> Product Name </label>
                     <input type="text" className="form-control" name="productName" defaultValue={myPackage.name} />
