@@ -18,6 +18,7 @@ return new class extends Migration
             // $table->double('sub_total');
             // $table->bigInteger('shipping_id');
             // $table->string('coupon');
+            $table->double('sub_total');
             $table->double('total_amount');
             $table->string('productName');
             // $table->integer('quantity');
