@@ -24,7 +24,7 @@ export default function NavBar({ userData }) {
             </button>
             {
               user ?
-                <span>
+               
                   <div className=" navbar-collapse me-n3" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
 
@@ -47,9 +47,9 @@ export default function NavBar({ userData }) {
                       {/* <a href="customer/login" className="nav-item nav-link btn btn-success">Login</a>            */}
                     </div>
                   </div>
-                </span>
+            
                 :
-                <span>
+             
                   <div className=" navbar-collapse me-n3" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
                       <Link href="/" className="nav-item nav-link active">Home</Link>
@@ -69,7 +69,7 @@ export default function NavBar({ userData }) {
                       <a href="customer/login"> <button className='btn btn-warning'><p className='text-warning'> {user.name} </p><br /> Log In </button> </a>
                     </div>
                   </div>
-                </span>
+               
             }
 
           </nav>

@@ -117,12 +117,18 @@ Route::post('order', [FrontendController::class, 'order'])->name('checkout.order
 
 Route::get('/packeges', function () {
     $packages = Price::all();
-    return Inertia::render('Packeges', compact('packages'));
+    $user = Auth::guard('customer')->user() ?? '';
+    $token = csrf_token();
+    $userData = [
+        'user' => $user,
+        'token' => $token,
+    ];
+    return Inertia::render('Packeges', compact('packages', 'userData'));
 });
 
-// Route::get('/dashboard', function () {
-//     return view('backend.dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('backend.dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
